@@ -1,33 +1,31 @@
 let btn = document.getElementById('btnsubmit')
-
 function onBtnClick(){
     let userName = document.getElementById('uname').value
-let email = document.getElementById('email').value
-let pass = document.getElementById('pass').value
-let cpass = document.getElementById('cpass').value
-    if(userName.value=='NULL' || userName.value.length<4){
-        div.innerHTML='Username must be3 atleast 3 characters'
+    if(userName.value=='null' || userName.length<=3 || userName.value==""){
+        document.getElementById('name_e').innerHTML='Username must be atleast 3 characters';
     }
+     let email = document.getElementById('email').value
+ let pass = document.getElementById('pass').value
+ let cpass = document.getElementById('conpass').value
     let mailformat = /^w+([.-]?w+)@w+([.-]?w+)(.w{2,3})+$/;
     if(email!=null)
     {
-        if(email.value.match(mailformat))
+        if(email.match(mailformat))
         {
         return true;
         }
         else{
-            div.innerHTML= 'Email is not valid'
+            document.getElementById('err_email').innerHTML= 'Email is not valid';
 
         }
     }
-    if(pass==null || pass.length<=6){
-        div.innerHTML='Password must be atleast 6 characters'
+    if(pass==null || pass.length<7){
+        
+        document.getElementById('e-pass').innerHTML='Password must be atleast 6 characters';
     }
-    if(cpass!==pass || cpass===null){
-        div.innerHTML='password2 is required'
+    if(cpass!=pass || cpass==null){
+        document.getElementById('e_c').innerHTML='password2 is required';
     }
-    if(userName=='NULL' || userName.length<4){
-        div.innerHTML='Username must be3 atleast 3 characters'
-    }
+    
 }
 btnsubmit.addEventListener('click',onBtnClick)
